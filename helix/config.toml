@@ -1,1 +1,9 @@
+theme = "catppuccin_macchiato"
 
+[editor]
+shell = ["bash", "-c"]
+bufferline = "always"
+color-modes = true
+
+[editor.whitespace]
+render = "all"
