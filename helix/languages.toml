@@ -1,0 +1,42 @@
+[language-server.luau-lsp]
+command = "luau-lsp"
+args = ["lsp"]
+
+[[language]]
+name = "luau"
+scope = "source.luau"
+injection-regex = "^luau$"
+file-types = ["luau"]
+comment-tokens = ["--", "---"]
+block-comment-tokens = [
+  {start = "--[[", end = "]]"},
+  {start = "--[=[", end = "]=]"},
+  {start = "--[==[", end = "]==]"}
+]
+indent = { tab-width = 4, unit = "    "}
+roots = [ "aftman.toml", "default.project.json", "wally.toml", "rokit.toml", "selene.toml", ".darklua.json", "foreman.toml", ".luaurc" ]
+language-servers = [ "luau-lsp" ]
+
+[[grammar]]
+name = "luau"
+source = { git = "https://github.com/polychromatist/tree-sitter-luau", rev = "ec187cafba510cddac265329ca7831ec6f3b9955" }
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+
+[language-server.kotlin-lsp]
+command="kotlin-language-server"
+# args=["--compiler-path", "~/.sdkman/candidates/kotlin/current/bin/kotlinc"]
+args=[]
+
+[[language]]
+name = "kotlin"
+scope = "source.kotlin"
+file-types = ["kt", "kts"]
+roots = ["settings.gradle", "settings.gradle.kts"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = "    " }
+language-servers = [ "kotlin-lsp" ]
